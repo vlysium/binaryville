@@ -7,6 +7,7 @@
   --color-yellow: #f0c808;
   --color-dark-gray: #4c5b5c;
   --color-white: #ffffff;
+  --color-white-transparent: #ffffff80;
 
   --font-serif: "Roboto Slab", serif;
 }
@@ -29,11 +30,14 @@ body {
 
 section.wrapper {
   max-width: 1200px;
-  margin-inline: auto;
+  margin: 10vh auto;
+  padding: 1rem;
 }
 
 img {
   max-width: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -45,12 +49,35 @@ a {
   text-decoration: none;
 }
 
+h1, h2 {
+  text-align: center;
+  color: var(--color-red);
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
 span.sr-only {
   display: none;
 }
+
+@media screen and (min-width: 640px) { /* small screen */
+  h1 {
+    font-size: 3rem;
+  }
+  
+  h2 {
+    font-size: 2.25rem;
+  }
+}
 /* #endregion global */
 
-/* region header */
+/* #region header */
 header {
   display: flex;
   flex-direction: row;
@@ -58,7 +85,6 @@ header {
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  z-index: 100;
 }
 
 img.logo {
@@ -74,6 +100,7 @@ img.logo {
   flex-direction: column-reverse;
   transform: translateX(-100vw);
   transition: transform 0.3s;
+  z-index: 100;
 }
 
 #navbar:target {
@@ -109,7 +136,7 @@ img.logo {
   padding: 0.5rem;
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 640px) { /* small screen */
   header {
     flex-direction: column;
     padding: 1rem 0;
@@ -138,7 +165,7 @@ img.logo {
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1024px) { /* large screen */
   header {
     flex-direction: row;
     padding-left: 1rem;
@@ -157,4 +184,102 @@ img.logo {
     justify-content: space-between;
   }
 }
-/* endregion header */
+/* #endregion header */
+
+/* #region binaryville-catalog */
+section .grid {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-areas:
+  "main"
+  "store"
+  "hats"
+  "shirts"
+  "products"
+  "mugs"
+  "aprons";
+}
+
+/* #region catalog-items*/
+section .grid > :nth-child(1) {
+  grid-area: main;
+}
+
+section .grid > :nth-child(2) {
+  grid-area: store;
+}
+
+section .grid > :nth-child(3) {
+  grid-area: hats;
+}
+
+section .grid > :nth-child(4) {
+  grid-area: shirts;
+}
+
+section .grid > :nth-child(5) {
+  grid-area: products;
+}
+
+section .grid > :nth-child(6) {
+  grid-area: mugs;
+}
+
+section .grid > :nth-child(7) {
+  grid-area: aprons;
+}
+/* #endregion catalog-items*/
+
+section .grid figure {
+  position: relative;
+}
+
+section .grid figcaption {
+  position: absolute;
+  inset: 0;
+  top: 50%;
+}
+
+section .grid a {
+  display: block;
+  background-color: var(--color-white-transparent);
+  color: var(--color-blue);
+  text-align: center;
+  font-size: 2rem;
+  padding: 1.5rem 0;
+  z-index: 1;
+}
+
+@media screen and (min-width: 640px) { /* small screen */
+  section .grid {
+    margin-top: 3rem;
+    grid-template-areas:
+      "store    store"
+      "main     main"
+      "hats     shirts"
+      "mugs     aprons"
+      "products products";
+  }
+}
+
+@media screen and (min-width: 1024px) { /* large screen */
+  section .grid {
+    margin-top: 4rem;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+    grid-template-areas:
+    "main     main     store store"
+    "main     main     store store"
+    "main     main     hats  shirts"
+    "products products mugs  aprons";
+  }
+
+  section .grid figcaption {
+    inset: unset;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+/* #endregion binaryville-catalog */
