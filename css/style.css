@@ -1,0 +1,12 @@
+:root{
+  --color-blue: #00bff3;
+  --color-red: #ff715b;
+  --color-yellow: #f0c808;
+  --color-dark-gray: #4c5b5c;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
