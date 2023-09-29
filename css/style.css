@@ -1,8 +1,14 @@
+/* #region global */
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap");
+
 :root{
   --color-blue: #00bff3;
   --color-red: #ff715b;
   --color-yellow: #f0c808;
   --color-dark-gray: #4c5b5c;
+  --color-white: #ffffff;
+
+  --font-serif: "Roboto Slab", serif;
 }
 
 *, *::before, *::after {
@@ -10,3 +16,145 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+html {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+section.wrapper {
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+span.sr-only {
+  display: none;
+}
+/* #endregion global */
+
+/* region header */
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  z-index: 100;
+}
+
+img.logo {
+  max-width: 10rem;
+}
+
+#navbar {
+  background-color: var(--color-blue);
+  position: fixed;
+  inset: 0;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column-reverse;
+  transform: translateX(-100vw);
+  transition: transform 0.3s;
+}
+
+#navbar > ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-block: 2rem auto;
+}
+
+#navbar > ul a {
+  display: block;
+  padding: 0.5rem;
+  color: white;
+  font-size: 1.125rem;
+  transition: opacity 0.15s;
+}
+
+#navbar > ul a:hover {
+  opacity: 0.75;
+}
+
+.close {
+  margin-left: auto;
+}
+
+#navbar:target {
+  transform: translateX(0);
+}
+
+:is(.hamburger, .close) > img {
+  width: 3rem;
+  height: 3rem;
+  padding: 0.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 1rem 0;
+  }
+
+  img.logo {
+    max-width: 12rem;
+  }
+
+  .hamburger, .close {
+    display: none;
+  }
+
+  #navbar {
+    position: static;
+    transform: unset;
+    padding: 0 1rem;
+    width: 100%;
+    transition: none;
+  }
+
+  #navbar > ul {
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  header {
+    flex-direction: row;
+    padding-left: 1rem;
+  }
+
+  img.logo {
+    max-width: 16rem;
+  }
+
+  #navbar {
+    width: 75%;
+    border-radius: 4rem 0 0 4rem;
+  }
+
+  #navbar > ul {
+    justify-content: space-between;
+  }
+}
+/* endregion header */
