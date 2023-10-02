@@ -338,3 +338,18 @@ section .row figure figcaption {
   margin-top: auto;
 }
 /* #endregion robots */
+
+/* #region footer */
+footer {
+  background-image: url(../img/lil-bv-bkgd.jpg);
+  background-size: auto 16rem;
+  background-position: center;
+  background-repeat: repeat-x;
+  height: 16rem;
+  padding: 2rem 0;
+}
+
+footer p {
+  text-align: center;
+}
+/* #endregion footer */
