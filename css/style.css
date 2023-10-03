@@ -294,6 +294,7 @@ section .grid a {
 section .row {
   display: grid;
   grid-auto-columns: 1fr;
+  margin-top: 2rem;
 }
 
 section .row li {
@@ -303,12 +304,14 @@ section .row li {
 @media screen and (min-width: 550px) {
   section .row {
     grid-template-columns: repeat(2, 1fr);
+    margin-top: 3rem;
   }
 }
 
 @media screen and (min-width: 850px) {
   section .row {
     grid-template-columns: repeat(3, 1fr);
+    margin-top: 4rem;
   }
 
   section .row li:last-of-type {
